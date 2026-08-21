@@ -1,3 +1,8 @@
+import { useState } from 'react';
+import Board from '../Aero-match/AeroMatchBoard';
+import Square from '../AeroBoxes/AeroBoxes';
+
+
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);

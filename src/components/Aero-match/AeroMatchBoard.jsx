@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Square from '../AeroBoxes/AeroBoxes';
 
 function Board({ xIsNext, squares, onPlay }) {
   function handleClick(i) {
@@ -7,9 +8,9 @@ function Board({ xIsNext, squares, onPlay }) {
     }
     const nextSquares = squares.slice();
     if (xIsNext) {
-      nextSquares[i] = 'X';
+      nextSquares[i] = '💿';
     } else {
-      nextSquares[i] = 'O';
+      nextSquares[i] = '💧';
     }
     onPlay(nextSquares);
   }
@@ -19,7 +20,7 @@ function Board({ xIsNext, squares, onPlay }) {
   if (winner) {
     status = 'Winner: ' + winner;
   } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+    status = 'Next player: ' + (xIsNext ? '💿' : '💧');
   }
 
   return (
@@ -43,5 +44,7 @@ function Board({ xIsNext, squares, onPlay }) {
     </>
   );
 }
+
+
 
 export default Board
