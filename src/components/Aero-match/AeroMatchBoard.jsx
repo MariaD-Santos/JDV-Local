@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Square from '../AeroBoxes/AeroBoxes';
+import calculateWinner from '../../utils/calcWin';
 
-function Board({ xIsNext, squares, onPlay }) {
+export default function Board({ xIsNext, squares, onPlay }) {
   function handleClick(i) {
     if (calculateWinner(squares) || squares[i]) {
       return;
@@ -44,7 +45,3 @@ function Board({ xIsNext, squares, onPlay }) {
     </>
   );
 }
-
-
-
-export default Board

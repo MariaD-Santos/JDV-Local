@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Board from '../Aero-match/AeroMatchBoard';
 import Square from '../AeroBoxes/AeroBoxes';
+import calculateWinner from '../../utils/calcWin';
 
 
 export default function Game() {
