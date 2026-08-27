@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import Board from '../Aero-match/AeroMatchBoard';
-import Square from '../AeroBoxes/AeroBoxes';
 import calculateWinner from '../../utils/calcWin';
+import AeroBoxes from '../AeroBoxes/AeroBoxes';
+import AeroMatchBoard from '../Aero-match/AeroMatchBoard';
 
 
-export default function Game() {
+export default function AeroGame() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
@@ -21,12 +21,7 @@ export default function Game() {
   }
 
   const moves = history.map((squares, move) => {
-    let description;
-    if (move > 0) {
-      description = 'Go to move #' + move;
-    } else {
-      description = 'Go to game start';
-    }
+    let description = move > 0 ? 'Go to move #' : 'Go to game start';
     return (
       <li key={move}>
         <button onClick={() => jumpTo(move)}>{description}</button>

@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import './App.css'
-import Board from './components/Aero-match/AeroMatchBoard'
-import Square from './components/AeroBoxes/AeroBoxes'
-import Game from './components/Game/AeroGame'
-
+import AeroBoxes from './components/AeroBoxes/AeroBoxes'
+import AeroMatchBoard from './components/Aero-match/AeroMatchBoard'
+import AeroGame from './components/Game/AeroGame'
 function App() {
   
 
   return (
     <>
-    <Board/>
+    <AeroBoxes/>
     </>
   )
 }

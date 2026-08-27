@@ -1,10 +1,10 @@
+import styles from './aeroboxes.module.css'
 
-function Square({ value, onSquareClick }) {
+export default function AeroBoxes({ value, onSquareClick }) {
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button className={styles.square} onClick={onSquareClick}>
       {value}
     </button>
   );
 }
 
-export default Square

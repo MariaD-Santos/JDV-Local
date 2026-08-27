@@ -1,0 +1,16 @@
+/* aeromatchboard.module.css */
+
+/* Classe para a mensagem de status */
+.status {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #004466; /* Exemplo de tom azul Frutiger Aero */
+}
+
+/* Classe para alinhar 3 botões em linha horizontal */
+.boardRow {
+  display: flex;
+  gap: 5px; /* Espaçamento entre os botões */
+  margin-bottom: 5px;
+}
