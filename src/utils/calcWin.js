@@ -1,5 +1,4 @@
 
-
 export default function calculateWinner(squares) {
     if (!squares){
         return null;
