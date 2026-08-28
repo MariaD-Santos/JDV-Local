@@ -4,15 +4,16 @@ export default function AeroPlacar({vitoriaCD, vitoriaGota, empates}){
         <div>
             <div>
                 <h1>Jogador 💿</h1>
-                {vitoriaCD}
+                <span id="o">{vitoriaCD}</span>
+                
             </div>
             <div>
                 <h1>Empate! 💿;💧</h1>
-                {empates}
+                <span id="draw">{empates}</span>
             </div>
             <div>
                 <h1>Jogador 💧</h1>
-                {vitoriaGota}
+                <span id="x">{vitoriaGota}</span>
             </div>
         </div>
     );
