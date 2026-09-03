@@ -17,11 +17,17 @@ export default function AeroMatchBoard({ xIsNext, squares, onPlay }) {
     onPlay(nextSquares);
   }
 
+ 
+
   const winner = calculateWinner(squares);
+  const empate = !winner && squares.every(square => square != null);
   let status;
   if (winner) {
     status = 'Vencedor: ' + winner;
-  } else {
+  } else if (empate){
+      status = 'Deu velha!'
+  }
+    else {
     status = 'Próximo jogador: ' + (xIsNext ? '💿' : '💧');
   }
 

@@ -8,13 +8,13 @@ import AeroBoxes from '../AeroBoxes/AeroBoxes';
 export default function AeroGame() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
-  const xIsNext = currentMove % 2 === 0;
+  const [jogadorInicial, setJogadorInicial] = useState('💿')
+  const xIsNext = currentMove % 2 === 0 ? (jogadorInicial === '💿') : (jogadorInicial !== '💿');
   const currentSquares = history[currentMove];
 
   const [vitoriaCD = 'x', setVitoriaCD] = useState(0)
   const [empates, setEmpates] = useState(0)
   const [vitoriaGota = 'o', setVitoriaGota] = useState(0)
-
 
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
@@ -22,13 +22,17 @@ export default function AeroGame() {
     setCurrentMove(nextHistory.length - 1);
     const vencedor = calculateWinner(nextSquares);
 
-    if (vencedor == 'x') {
-      setVitoriaCD = vitoriaCD + 1;
-    };
-    if (vencedor == 'o') {
-      setVitoriaGota = vitoriaGota + 1;
-    } else {
-      setEmpates = empates + 1;
+    if (vencedor == '💿') {
+      setVitoriaCD(vitoriaCD + 1)
+      setJogadorInicial('💧')
+    }
+    else if (vencedor == '💧') {
+      setVitoriaGota(vitoriaGota + 1)
+      setJogadorInicial('💿')
+      
+    } else if (!vencedor && nextSquares.every(square => square !== null)) {
+      setEmpates(empates + 1)
+      
     }
   }
 
@@ -49,7 +53,7 @@ export default function AeroGame() {
     <div className="game">
       <div className="game-board">
         <AeroMatchBoard xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-        <AeroPlacar vitoriaCD={vitoriaCD} vitoriaGota={vitoriaGota} empates={empates}  onPlay={handlePlay}/>
+        <AeroPlacar vitoriaCD={vitoriaCD} vitoriaGota={vitoriaGota} empates={empates} onPlay={handlePlay} />
       </div>
       <div className="game-info">
         <ol>{moves}</ol>
