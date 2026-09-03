@@ -1,6 +1,6 @@
 
-export default function calculateWinner(squares) {
-    if (!squares){
+export default function calculateWinner(boxes) {
+    if (!boxes){
         return null;
     }
 
@@ -16,8 +16,8 @@ export default function calculateWinner(squares) {
     ];
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a];
+        if (boxes[a] && boxes[a] === boxes[b] && boxes[a] === boxes[c]) {
+            return boxes[a];
         }
     }
     return null;

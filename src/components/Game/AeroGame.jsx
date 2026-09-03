@@ -11,21 +11,21 @@ export default function AeroGame() {
   const [currentMove, setCurrentMove] = useState(0);
   const [jogadorInicial, setJogadorInicial] = useState('💿')
   const xIsNext = currentMove % 2 === 0 ? (jogadorInicial === '💿') : (jogadorInicial !== '💿');
-  const currentSquares = history[currentMove];
+  const currentboxes = history[currentMove];
 
   const [vitoriaCD = 'x', setVitoriaCD] = useState(0)
   const [empates, setEmpates] = useState(0)
   const [vitoriaGota = 'o', setVitoriaGota] = useState(0)
 
-  const win = calculateWinner(currentSquares)
-  const tabuleiroCompleto = currentSquares.every(square => square !== null);
+  const win = calculateWinner(currentboxes)
+  const tabuleiroCompleto = currentboxes.every(box => box !== null);
   const fimDeJogo = Boolean(win) || tabuleiroCompleto;
 
-  function handlePlay(nextSquares) {
-    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+  function handlePlay(nextboxes) {
+    const nextHistory = [...history.slice(0, currentMove + 1), nextboxes];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
-    const vencedor = calculateWinner(nextSquares);
+    const vencedor = calculateWinner(nextboxes);
 
     if (vencedor == '💿') {
       setVitoriaCD(vitoriaCD + 1)
@@ -34,10 +34,10 @@ export default function AeroGame() {
     else if (vencedor == '💧') {
       setVitoriaGota(vitoriaGota + 1)
       setJogadorInicial('💿')
-      
-    } else if (!vencedor && nextSquares.every(square => square !== null)) {
+
+    } else if (!vencedor && nextboxes.every(box => box !== null)) {
       setEmpates(empates + 1)
-      
+
     }
   }
 
@@ -45,7 +45,7 @@ export default function AeroGame() {
     setCurrentMove(nextMove);
   }
 
-  const moves = history.map((squares, move) => {
+  const moves = history.map((boxes, move) => {
     let description = move > 0 ? 'Vá para a jogada # ' + move : 'Volte para o ínicio do jogo!';
     return (
       <li key={move}>
@@ -58,7 +58,7 @@ export default function AeroGame() {
     <div className="game">
       <div className="game-board">
         <AeroClock fimDeJogo={fimDeJogo} jogadaAtual={currentMove}/>
-        <AeroMatchBoard xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        <AeroMatchBoard xIsNext={xIsNext} boxes={currentboxes} onPlay={handlePlay} />
         <AeroPlacar vitoriaCD={vitoriaCD} vitoriaGota={vitoriaGota} empates={empates} onPlay={handlePlay} />
       </div>
       <div className="game-info">

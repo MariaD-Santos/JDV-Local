@@ -13,7 +13,7 @@ Inspirado na estética **Frutiger Aero** (tendência visual marcante dos anos 20
 
 ### 🚀 Diferenciais e Melhorias da Refatoração
 * **Identidade Visual Temática:** Transição do CSS global genérico para o tema Frutiger Aero via **CSS Modules** com convenção **BEM** e variáveis CSS[cite: 1].
-* **Modularização:** Divisão do arquivo único original em componentes reutilizáveis (`Square`, `Board`, `Game`) e isolamento de lógicas puras em utilitários (`calculateWinner`)[cite: 1, 2].
+* **Modularização:** Divisão do arquivo único original em componentes reutilizáveis (`box`, `Board`, `Game`) e isolamento de lógicas puras em utilitários (`calculateWinner`)[cite: 1, 2].
 * **Integração com Bootstrap:** Aplicação de utilitários de grid e responsividade[cite: 1].
 * **Acessibilidade & Usabilidade:** Suporte a leitores de tela com atributos semânticos em HTML5[cite: 1].
 
