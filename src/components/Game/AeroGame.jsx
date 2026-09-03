@@ -3,6 +3,7 @@ import AeroMatchBoard from '../AeroMatch/AeroMatchBoard';
 import AeroPlacar from '../AeroPlacar/AeroPlacar';
 import calculateWinner from '../../utils/calcWin';
 import AeroBoxes from '../AeroBoxes/AeroBoxes';
+import AeroClock from '../AeroClock/AeroClock';
 
 
 export default function AeroGame() {
@@ -15,6 +16,10 @@ export default function AeroGame() {
   const [vitoriaCD = 'x', setVitoriaCD] = useState(0)
   const [empates, setEmpates] = useState(0)
   const [vitoriaGota = 'o', setVitoriaGota] = useState(0)
+
+  const win = calculateWinner(currentSquares)
+  const tabuleiroCompleto = currentSquares.every(square => square !== null);
+  const fimDeJogo = Boolean(win) || tabuleiroCompleto;
 
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
@@ -52,6 +57,7 @@ export default function AeroGame() {
   return (
     <div className="game">
       <div className="game-board">
+        <AeroClock fimDeJogo={fimDeJogo} jogadaAtual={currentMove}/>
         <AeroMatchBoard xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
         <AeroPlacar vitoriaCD={vitoriaCD} vitoriaGota={vitoriaGota} empates={empates} onPlay={handlePlay} />
       </div>
