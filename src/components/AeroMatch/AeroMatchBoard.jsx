@@ -1,34 +1,31 @@
-
 import calculateWinner from '../../utils/calcWin';
 import AeroBoxes from '../AeroBoxes/AeroBoxes';
-import styles from './aeromatchboard.module.css'
+import styles from './aeromatchboard.module.css';
 
 export default function AeroMatchBoard({ xIsNext, boxes, onPlay }) {
   function handleClick(i) {
     if (calculateWinner(boxes) || boxes[i]) {
       return;
     }
-    const nextboxes = boxes.slice();
+    const nextBoxes = boxes.slice();
     if (xIsNext) {
-      nextboxes[i] = '💿';
+      nextBoxes[i] = '💿';
     } else {
-      nextboxes[i] = '💧';
+      nextBoxes[i] = '💧';
     }
-    onPlay(nextboxes);
+    onPlay(nextBoxes);
   }
-
- 
 
   const winner = calculateWinner(boxes);
-  const empate = !winner && boxes.every(box => box != null);
+  const draw = !winner && boxes.every(box => box != null);
   let status;
   if (winner) {
-    status = 'Vencedor: ' + winner;
-  } else if (empate){
-      status = 'Deu velha!'
+    status = 'Winner: ' + winner;
+  } else if (draw){
+      status = 'Tie game!'
   }
     else {
-    status = 'Próximo jogador: ' + (xIsNext ? '💿' : '💧');
+    status = 'Next player: ' + (xIsNext ? '💿' : '💧');
   }
 
   return (

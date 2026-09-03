@@ -1,42 +1,42 @@
 import { useState } from 'react';
 import AeroMatchBoard from '../AeroMatch/AeroMatchBoard';
-import AeroPlacar from '../AeroPlacar/AeroPlacar';
+import AeroScore from '../AeroScore/AeroScore';
 import calculateWinner from '../../utils/calcWin';
-import AeroBoxes from '../AeroBoxes/AeroBoxes';
+
 import AeroClock from '../AeroClock/AeroClock';
 
 
 export default function AeroGame() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
-  const [jogadorInicial, setJogadorInicial] = useState('💿')
-  const xIsNext = currentMove % 2 === 0 ? (jogadorInicial === '💿') : (jogadorInicial !== '💿');
-  const currentboxes = history[currentMove];
+  const [startingPlayer, setStartingPlayer] = useState('💿');
+  const xIsNext = currentMove % 2 === 0 ? (startingPlayer === '💿') : (startingPlayer !== '💿');
+  const currentBoxes = history[currentMove];
 
-  const [vitoriaCD = 'x', setVitoriaCD] = useState(0)
-  const [empates, setEmpates] = useState(0)
-  const [vitoriaGota = 'o', setVitoriaGota] = useState(0)
+  const [cdWins = 'x', setCdWins] = useState(0);
+  const [draws, setDraws] = useState(0);
+  const [dropWins = 'o', setDropWins] = useState(0);
 
-  const win = calculateWinner(currentboxes)
-  const tabuleiroCompleto = currentboxes.every(box => box !== null);
-  const fimDeJogo = Boolean(win) || tabuleiroCompleto;
+  const win = calculateWinner(currentBoxes);
+  const isBoardFull = currentBoxes.every(box => box !== null);
+  const gameOver = Boolean(win) || isBoardFull;
 
-  function handlePlay(nextboxes) {
-    const nextHistory = [...history.slice(0, currentMove + 1), nextboxes];
+  function handlePlay(nextBoxes) {
+    const nextHistory = [...history.slice(0, currentMove + 1), nextBoxes];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
-    const vencedor = calculateWinner(nextboxes);
+    const winner = calculateWinner(nextBoxes);
 
-    if (vencedor == '💿') {
-      setVitoriaCD(vitoriaCD + 1)
-      setJogadorInicial('💧')
+    if (winner == '💿') {
+      setCdWins(cdWins + 1);
+      setStartingPlayer('💧');
     }
-    else if (vencedor == '💧') {
-      setVitoriaGota(vitoriaGota + 1)
-      setJogadorInicial('💿')
+    else if (winner == '💧') {
+      setDropWins(dropWins + 1);
+      setStartingPlayer('💿');
 
-    } else if (!vencedor && nextboxes.every(box => box !== null)) {
-      setEmpates(empates + 1)
+    } else if (!winner && nextBoxes.every(box => box !== null)) {
+      setDraws(draws + 1);
 
     }
   }
@@ -46,7 +46,7 @@ export default function AeroGame() {
   }
 
   const moves = history.map((boxes, move) => {
-    let description = move > 0 ? 'Vá para a jogada # ' + move : 'Volte para o ínicio do jogo!';
+    let description = move > 0 ? 'Go to move #' + move : 'Go to game start!';
     return (
       <li key={move}>
         <button onClick={() => jumpTo(move)}>{description}</button>
@@ -57,9 +57,9 @@ export default function AeroGame() {
   return (
     <div className="game">
       <div className="game-board">
-        <AeroClock fimDeJogo={fimDeJogo} jogadaAtual={currentMove}/>
-        <AeroMatchBoard xIsNext={xIsNext} boxes={currentboxes} onPlay={handlePlay} />
-        <AeroPlacar vitoriaCD={vitoriaCD} vitoriaGota={vitoriaGota} empates={empates} onPlay={handlePlay} />
+        <AeroClock gameOver={gameOver} currentMove={currentMove}/>
+        <AeroMatchBoard xIsNext={xIsNext} boxes={currentBoxes} onPlay={handlePlay} />
+        <AeroScore cdWins={cdWins} dropWins={dropWins} draws={draws} onPlay={handlePlay} />
       </div>
       <div className="game-info">
         <ol>{moves}</ol>
