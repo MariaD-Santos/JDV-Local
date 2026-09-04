@@ -30,6 +30,7 @@ export default function AeroMatchBoard({ xIsNext, boxes, onPlay }) {
 
   return (
     <>
+      <h1 className={styles.title}>AeroMatch!</h1>
       <div className={styles.status}>{status}</div>
       <div className={styles.boardRow}>
         <AeroBoxes value={boxes[0]} onboxClick={() => handleClick(0)} />

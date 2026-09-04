@@ -1,16 +1,54 @@
-/* aeromatchboard.module.css */
 
-/* Classe para a mensagem de status */
-.status {
-  margin-bottom: 15px;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #004466; /* Exemplo de tom azul Frutiger Aero */
-}
-
-/* Classe para alinhar 3 botões em linha horizontal */
 .boardRow {
   display: flex;
   gap: 5px; /* Espaçamento entre os botões */
   margin-bottom: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Título principal da página */
+.title {
+  text-align: center;
+  color: var(--aero-text-primary);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  
+  /* Sombra de texto suave com brilho característico do Aero */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* Mensagem de status (Próximo jogador / Vencedor) */
+.status {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--aero-text-primary);
+  
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  
+  /* Fundo vítreo suave */
+  background: var(--aero-glass-bg);
+  backdrop-filter: var(--aero-blur);
+  -webkit-backdrop-filter: var(--aero-blur);
+  
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Linha do tabuleiro (contém 3 AeroBoxes) */
+.boardRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* Remove a margem inferior da última linha para manter o alinhamento correto */
+.boardRow:last-child {
+  margin-bottom: 0;
 }

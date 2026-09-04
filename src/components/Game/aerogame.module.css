@@ -1,0 +1,8 @@
+.game {
+  background: var(--aero-glass-bg);
+  backdrop-filter: var(--aero-blur);
+  -webkit-backdrop-filter: var(--aero-blur); /* Suporte para Safari */
+  border: 1px solid var(--aero-glass-border);
+  box-shadow: var(--aero-shadow);
+  border-radius: 20px;
+  padding: 24px; }

@@ -1,0 +1,8 @@
+/* Encapsulamento externo do timer */
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}

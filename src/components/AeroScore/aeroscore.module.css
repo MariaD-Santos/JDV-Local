@@ -1,0 +1,9 @@
+.score{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.scorenumbers {
+  color: var(--aero-text-color);
+  font-weight: bold;
+}

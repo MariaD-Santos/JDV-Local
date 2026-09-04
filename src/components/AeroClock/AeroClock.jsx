@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import styles from './aeroclock.module.css'
+
 
 export default function AeroClock({ gameOver, currentMove }) {
 
@@ -22,8 +24,8 @@ export default function AeroClock({ gameOver, currentMove }) {
     }, [gameOver]);
 
     return (
-        <div className="text-center my-2">
-            <div className="badge bg-info text-dark fs-6 p-2">
+        <div className={styles.timer}>
+            <div className={styles.seconds}>
                 ⏱️ Playing time: {seconds}s
             </div>
         </div>

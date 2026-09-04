@@ -2,3 +2,42 @@
     height: 50px;
     width: 50px;
 }
+/* Estilo base para cada célula (AeroBoxes) */
+.box {
+  /* Dimensões do quadrado */
+  width: 80px;
+  height: 80px;
+
+  /* Centralização do emoji */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem; /* Tamanho ideal para visualização de emojis */
+
+  /* Efeito Aero Glass (Vidro Frosted) */
+  background: var(--aero-glass-bg);
+  backdrop-filter: var(--aero-blur);
+  -webkit-backdrop-filter: var(--aero-blur); /* Suporte para Safari */
+
+  /* Estilização e Efeitos visuais */
+  border-radius: 12px;
+  box-shadow: var(--aero-button-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borda suave de vidro */
+
+  /* Interatividade */
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Estado de Hover (Quando o usuário passa o mouse por cima) */
+.box:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.25); /* Aumenta a luminosidade do vidro */
+}
+
+/* Estado Ativo/Focado (Acessibilidade via Teclado) */
+.box:focus {
+  outline: 2px solid #0078d4; /* Anel de foco visível */
+  outline-offset: 2px;
+}
