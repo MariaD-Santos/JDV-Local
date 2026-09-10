@@ -20,12 +20,12 @@ export default function AeroMatchBoard({ xIsNext, boxes, onPlay }) {
   const draw = !winner && boxes.every(box => box != null);
   let status;
   if (winner) {
-    status = 'Winner: ' + winner;
+    status = 'Vencedor: ' + winner;
   } else if (draw){
-      status = 'Tie game!'
+      status = 'Empate!!'
   }
     else {
-    status = 'Next player: ' + (xIsNext ? '💿' : '💧');
+    status = 'Próximo jogador: ' + (xIsNext ? '💿' : '💧');
   }
 
   return (

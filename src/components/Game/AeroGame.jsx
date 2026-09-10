@@ -87,7 +87,7 @@ export default function AeroGame() {
   }
 
   const moves = history.map((boxes, move) => {
-    let description = move > 0 ? 'Go to move #' + move : 'Go to game start!';
+    let description = move > 0 ? 'Vá para a jogada #' + move : 'Volte para o inicio!';
     return (
       <li key={move}>
         <button onClick={() => jumpTo(move)}>{description}</button>
