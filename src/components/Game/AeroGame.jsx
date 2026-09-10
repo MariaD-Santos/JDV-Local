@@ -45,12 +45,15 @@ export default function AeroGame() {
       if (nextCdWins === 3) {
         // Alerta nativo do navegador antes de resetar
         Swal.fire({
-          title: "Sweet!",
-          text: "Modal with a custom image.",
-          imageUrl: "https://unsplash.it/400/200",
-          imageWidth: 400,
-          imageHeight: 200,
-          imageAlt: "Custom image"
+          title: "Jogador 💿 ganhou!",
+          text: "Parabéns pelo jogo! agora você pode voltar para sua caixinha!",
+          imageUrl: "https://i.pinimg.com/originals/c9/c9/05/c9c905b6a8ee5f9e7bd5c53719db7e3c.png",
+          imageWidth: 150,
+          imageHeight: 150,
+          imageAlt: "CD",
+          background: '#3D71AD',
+          color: '#1E376D',
+          confirmButtonColor: '#1569A7'
         });
         resetGame();
       }
@@ -62,12 +65,15 @@ export default function AeroGame() {
       if (nextDropWins === 3) {
         // Alerta nativo do navegador antes de resetar
         Swal.fire({
-          title: "Sweet!",
-          text: "Modal with a custom image.",
-          imageUrl: "https://unsplash.it/400/200",
-          imageWidth: 400,
-          imageHeight: 200,
-          imageAlt: "Custom image"
+          title: "Jogador 💧 ganhou!",
+          text: "Parabéns pelo jogo! agora você pode voltar para o mar!",
+          imageUrl: "https://64.media.tumblr.com/e6f494a66988bda58b9be45521e13aa2/0c5e779504eaa148-4e/s400x600/4af3fef33502994f40ee0e25810aef2b85abb7b3.gifv",
+          imageWidth: 200,
+          imageHeight: 150,
+          imageAlt: "CD",
+          background: '#62B8FB',
+          color: 'white',
+          confirmButtonColor: '#2AB7FB'
         });
         resetGame();
       }
