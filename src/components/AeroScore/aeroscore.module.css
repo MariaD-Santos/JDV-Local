@@ -1,9 +1,53 @@
-.score{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.score {
+  width: min(100%, 260px);
+  min-width: 0;
+
+  margin-top: 18px;
+  padding: 10px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  box-sizing: border-box;
+
+  color: #174a72;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.35),
+    rgba(190, 225, 255, 0.25)
+  );
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 18px;
+
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.75),
+    0 4px 12px rgba(40, 100, 160, 0.12);
 }
+
+.titleScore {
+  margin: 0;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  color: #174a72;
+
+  text-shadow:
+    0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
 .scorenumbers {
-  color: var(--aero-text-color);
-  font-weight: bold;
+  min-width: 24px;
+
+  color: #063f68;
+  font-size: 1.2rem;
+  font-weight: 800;
 }

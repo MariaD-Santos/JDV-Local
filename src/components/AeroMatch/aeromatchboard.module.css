@@ -1,54 +1,58 @@
-
-.boardRow {
-  display: flex;
-  gap: 5px; /* Espaçamento entre os botões */
-  margin-bottom: 5px;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Título principal da página */
 .title {
+  margin: 5px 0 14px;
+
+  color: #123f68;
+
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -1px;
   text-align: center;
-  color: var(--aero-text-primary);
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  
-  /* Sombra de texto suave com brilho característico do Aero */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), 0 0 12px rgba(255, 255, 255, 0.4);
+
+  text-shadow:
+    0 2px 2px rgba(255, 255, 255, 0.8),
+    0 4px 8px rgba(30, 80, 140, 0.25);
 }
 
-/* Mensagem de status (Próximo jogador / Vencedor) */
 .status {
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--aero-text-primary);
-  
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  
-  /* Fundo vítreo suave */
-  background: var(--aero-glass-bg);
-  backdrop-filter: var(--aero-blur);
-  -webkit-backdrop-filter: var(--aero-blur);
-  
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
+  width: 100%;
+  max-width: 620px;
 
-/* Linha do tabuleiro (contém 3 AeroBoxes) */
+  box-sizing: border-box;
+
+  margin-bottom: 20px;
+  padding: 10px 20px;
+
+  text-align: center;
+
+  color: #174a72;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.45),
+    rgba(210, 235, 255, 0.3)
+  );
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 999px;
+
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    0 5px 12px rgba(50, 100, 160, 0.15);
+}
 .boardRow {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+
+  gap: clamp(6px, 2vw, 12px);
+  margin-bottom: clamp(6px, 2vw, 12px);
 }
 
-/* Remove a margem inferior da última linha para manter o alinhamento correto */
 .boardRow:last-child {
   margin-bottom: 0;
 }

@@ -4,6 +4,7 @@ import AeroScore from '../AeroScore/AeroScore';
 import calculateWinner from '../../utils/calcWin';
 import AeroClock from '../AeroClock/AeroClock';
 import styles from './aerogame.module.css'
+import Swal from 'sweetalert2';
 
 export default function AeroGame() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -43,7 +44,14 @@ export default function AeroGame() {
 
       if (nextCdWins === 3) {
         // Alerta nativo do navegador antes de resetar
-        alert('O jogador 💿 alcançou 3 vitórias!');
+        Swal.fire({
+          title: "Sweet!",
+          text: "Modal with a custom image.",
+          imageUrl: "https://unsplash.it/400/200",
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: "Custom image"
+        });
         resetGame();
       }
     } else if (winner === '💧') {
@@ -53,7 +61,14 @@ export default function AeroGame() {
 
       if (nextDropWins === 3) {
         // Alerta nativo do navegador antes de resetar
-        alert('O jogador 💧 alcançou 3 vitórias!');
+        Swal.fire({
+          title: "Sweet!",
+          text: "Modal with a custom image.",
+          imageUrl: "https://unsplash.it/400/200",
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: "Custom image"
+        });
         resetGame();
       }
     } else if (!winner && nextBoxes.every(box => box !== null)) {
@@ -75,15 +90,31 @@ export default function AeroGame() {
   });
 
   return (
-    <div className="game">
-      <div className="game-board">
-        <AeroClock gameOver={gameOver} currentMove={currentMove}/>
-        <AeroMatchBoard xIsNext={xIsNext} boxes={currentBoxes} onPlay={handlePlay} />
-        <AeroScore cdWins={cdWins} dropWins={dropWins} draws={draws} onPlay={handlePlay} />
+    <div className={styles.game}>
+      <div className={styles['game-board']}>
+        <AeroClock
+          gameOver={gameOver}
+          currentMove={currentMove}
+        />
+
+        <AeroMatchBoard
+          xIsNext={xIsNext}
+          boxes={currentBoxes}
+          onPlay={handlePlay}
+        />
+
+        <AeroScore
+          cdWins={cdWins}
+          dropWins={dropWins}
+          draws={draws}
+          onPlay={handlePlay}
+        />
       </div>
-      <div className="game-info">
+
+      <div className={styles['game-info']}>
         <ol>{moves}</ol>
       </div>
     </div>
   );
+
 }
